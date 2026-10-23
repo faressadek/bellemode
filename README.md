@@ -1,6 +1,15 @@
 # Belle Mode
 
-A simple, static online clothing store. No build step and no dependencies: open `index.html` in a browser and it works.
+A simple online clothing store that works as an installable app (a Progressive Web App). No build step and no dependencies.
+
+## Install as an app
+
+The app must be served over HTTPS (for example with GitHub Pages) or from `localhost`.
+
+- **Android / Chrome / Edge:** tap the "Install app" button in the header, or use the browser menu's "Install app" option.
+- **iPhone / iPad (Safari):** tap Share, then "Add to Home Screen".
+
+Once installed it opens full screen and works offline.
 
 ## Features
 
@@ -14,12 +23,17 @@ A simple, static online clothing store. No build step and no dependencies: open 
 index.html      Page markup
 styles.css      Styling
 products.js     Product catalogue (edit this to change what is for sale)
-app.js          Filtering and cart logic
+app.js          Filtering, cart logic and install button
+manifest.webmanifest   App name, colors and icons
+sw.js           Service worker (offline caching)
+icons/          App icons
 ```
+
+When you change any cached file, bump the `CACHE` version in `sw.js` so installed copies update.
 
 ## Running locally
 
-Open `index.html` directly, or serve the folder:
+Serve the folder (the service worker needs `localhost` or HTTPS, so opening the file directly won't install):
 
 ```
 python3 -m http.server 8000
@@ -35,4 +49,4 @@ Each product in `products.js` has an `id`, `name`, `category`, `price` and `colo
 
 - Replace the placeholder colors with product photos
 - Add a checkout flow (Stripe, Shopify Buy Button or similar)
-- Deploy with GitHub Pages
+- Turn on GitHub Pages (Settings → Pages) to get an HTTPS link people can install from

@@ -32,6 +32,17 @@ button { font: inherit; cursor: pointer; }
 
 .logo { margin: 0; font-size: 1.5rem; letter-spacing: 0.08em; }
 
+.header-actions { display: flex; gap: 8px; align-items: center; }
+
+.install-button {
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 999px;
+}
+.install-button[hidden] { display: none; }
+
 .cart-button {
   border: 1px solid var(--ink);
   background: none;
